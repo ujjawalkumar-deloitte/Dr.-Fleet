@@ -1,0 +1,11 @@
+**************Some libraries needs to be downloaded before running the Project*****************
+1.pip install selenium
+2.pip install pytest
+3.pip install pytest-html
+4.pip install pytest-allure
+5.pip install pytest-metadata
+
+Running command
+pytest -v -s -m "sanity" --html=./Reports/report.html testCases/ --browser edge
+pytest -v -s testCases/test_login.py
+pytest -v -s testCases/test_createtrip.py  
