@@ -4,14 +4,15 @@ import pytest
 from selenium.webdriver.common.by import By
 
 from pageObjects.LoginPage import LoginPage
+from utilities.readProperties import ReadConfig
 
 
 
 class Test_001_Login:
-    baseURL = "https://d170ul3ls6wwyw.cloudfront.net/drfleet/"
-    username = "kujjawal049@gmail.com"
-    password = "123"
-    email = "kujjawal049@gmail.com"
+    baseURL="https://d170ul3ls6wwyw.cloudfront.net/drfleet/"
+    username="kujjawal049@gmail.com"
+    password="123"
+    email="kujjawal049@gmail.com"
 
 
 
@@ -80,7 +81,7 @@ class Test_001_Login:
         self.lp.logouticon()
         self.lp.logout()
 
-        
+
 
 
 
