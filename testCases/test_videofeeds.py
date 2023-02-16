@@ -14,7 +14,7 @@ class Test_002_VideoFeed:
 
 
     @pytest.mark.sanity
-    @pytest.mark.regression
+
     def test_login(self,setup):
         self.driver = setup
         self.driver.get(self.baseURL)
@@ -37,3 +37,19 @@ class Test_002_VideoFeed:
         self.vf.pausevideo()
         self.lp.logouticon()
         self.lp.logout()
+    @pytest.mark.regression
+    def test_searchBox(self,setup):
+        self.driver = setup
+        self.driver.get(self.baseURL)
+        self.lp=LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.login()
+        self.vf = VideoFeeds(self.driver)
+        self.vf.videofeed()
+        self.vf.ongoingtrip()
+        self.vf.completedtrip()
+        self.vf.search()
+        self.vf.clicksearch()
+        self.vf.logouticon()
+        self.vf.logout()

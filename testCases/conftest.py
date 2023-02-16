@@ -3,7 +3,6 @@ from selenium import webdriver
 import time
 
 @pytest.fixture()
-
 def setup(browser):
     if browser=="edge":
         driver=webdriver.Edge("C:\Webdriver\msedgedriver.exe")
@@ -15,7 +14,7 @@ def setup(browser):
         print("Launching Chrome Browser..................")
         time.sleep(5)
     else:
-        driver=webdriver.Edge("C:/Webdriver\msedgedriver.exe")
+        driver = webdriver.Chrome("C:\Webdriver\chromedriver2.exe")
         driver.maximize_window()
         time.sleep(3)
     return driver

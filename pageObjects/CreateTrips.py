@@ -1,6 +1,7 @@
 import time
 from selenium.webdriver.common.by import By
 
+
 class CreateTrips:
     button_click_trips_xpath = "//div[contains(text(),'Trips')]"
     button_createtrip_xpath = "//button[@class='add-trip-btn']//*[name()='svg']"

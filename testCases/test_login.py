@@ -69,7 +69,7 @@ class Test_001_Login:
 
 
     @pytest.mark.sanity
-    @pytest.mark.regression
+
     def test_login(self,setup):
         #pytest.skip("skip this test case")
         self.driver = setup

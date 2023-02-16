@@ -8,4 +8,4 @@
 Running command
 pytest -v -s -m "sanity" --html=./Reports/report.html testCases/ --browser edge
 pytest -v -s testCases/test_login.py
-pytest -v -s testCases/test_createtrip.py  
+pytest -v -s testCases/test_createtrip.py
