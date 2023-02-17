@@ -60,7 +60,7 @@ class Test_001_Login:
             self.driver.save_screenshot(".\\Screenshots\\" + "Link_sent.png")
         else:
             self.lp.backLogin()
-            #self.driver.save_screenshot(".\\Screenshots\\" + "Not Link_sent.png")
+
             assert False
 
 

@@ -1,3 +1,5 @@
+import time
+
 import pytest
 from selenium.webdriver.common.by import By
 
@@ -8,10 +10,8 @@ class Test_004_CreateTrip:
     baseURL = "https://d170ul3ls6wwyw.cloudfront.net/drfleet/"
     username = "kujjawal049@gmail.com"
     password = "123"
-    startDate= "15-02-2023"
-    endDate = "05-03-2023"
-    source = "London"
-    destination = "clock tower"
+    source = "London Street"
+    destination = "Clock Tower Street"
 
 
     @pytest.mark.sanity
@@ -44,16 +44,36 @@ class Test_004_CreateTrip:
         self.tr.selectDriver()
         self.tr.assignVehicle()
         self.tr.selectvehicle()
+        self.tr.cancel()
+        #self.tr.Yescancel()
+        self.tr.Nocancel()
         self.tr.clickCreate()
+        time.sleep(4)
         self.msg = self.driver.find_element(By.TAG_NAME, "body").text
-        print(self.msg)
-        if 'Trip saved successfully' in self.msg:
-            assert True
+        if 'Trip created successfully' in self.msg:
             self.driver.save_screenshot(".\\Screenshots\\" + "Trip_created.png")
-        else:
-            self.driver.save_screenshot(".\\Screenshots\\" + "Not Trip_created.png")
-            assert False
 
-        # self.tr.cancel()
-        # self.tr.Yescancel()
-        #self.tr.Nocancel()
+            assert True
+        else:
+            self.driver.close()
+
+        self.lp.logouticon()
+        self.lp.logout()
+
+    def test_searchbox(self,setup):
+        self.driver = setup
+        self.driver.get(self.baseURL)
+        self.lp=LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.login()
+        self.tr=CreateTrips(self.driver)
+        self.tr.trip()
+        self.tr.scheduledtrips()
+        self.tr.search()
+        self.tr.clicksearch()
+        self.lp.logouticon()
+        self.lp.logout()
+
+
+

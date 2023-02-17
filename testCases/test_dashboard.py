@@ -1,3 +1,5 @@
+import time
+
 import pytest
 from selenium.webdriver.common.by import By
 
@@ -12,7 +14,7 @@ class Test_005_Dashboard:
 
 
     def test_dashboard(self,setup):
-    #pytest.skip("skip this test case")
+
         self.driver = setup
         self.driver.get(self.baseURL)
         self.lp=LoginPage(self.driver)
@@ -22,6 +24,7 @@ class Test_005_Dashboard:
         self.db=Dashboard(self.driver)
         self.db.bestRatedDriver()
         self.db.Video()
+        time.sleep(3)
         self.msg = self.driver.find_element(By.TAG_NAME, "body").text
         #print(self.msg)
         if 'Currently there are no videos available for this trip' in self.msg:
@@ -29,7 +32,11 @@ class Test_005_Dashboard:
             assert True
 
         else:
-            self.driver.back()
+            self.db.driver_Video()
+            self.db.driver_Video()
+            self.db.violationDropdown()
+            self.driver.save_screenshot(".\\Screenshots\\" + "Driver Videos.png")
+
             assert True
         self.db.click_on_Dashboard()
         self.db.lastMonth()

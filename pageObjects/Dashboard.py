@@ -12,6 +12,8 @@ class Dashboard:
     click_on_dashboard = "/html/body/div/div[2]/div/div/div[1]"
     last_month = "//div[@class='last-month-pie-chart']//canvas[@role='img']"
     last_to_last_month = "//div[@class='last-to-last-month-pie-chart']//canvas[@role='img']"
+    driver_video = "//div[@class='custom-player']//div//video"
+    violation_dropdown = "(//*[name()='path'])[56]"
 
 
     def __init__(self, driver):
@@ -54,3 +56,12 @@ class Dashboard:
         self.driver.find_element(By.XPATH, self.best_rated_driver).click()
         time.sleep(3)
 
+    def driver_Video(self):
+        time.sleep(3)
+        self.driver.find_element(By.XPATH, self.driver_video).click()
+        time.sleep(3)
+
+    def violationDropdown(self):
+        time.sleep(3)
+        self.driver.find_element(By.XPATH, self.violation_dropdown).click()
+        time.sleep(3)
