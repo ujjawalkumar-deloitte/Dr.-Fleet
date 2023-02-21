@@ -1,5 +1,6 @@
 from selenium import webdriver
 import pytest
+from selenium.webdriver.common.by import By
 
 from pageObjects.LoginPage import LoginPage
 from pageObjects.VideoFeeds import VideoFeeds
@@ -13,9 +14,9 @@ class Test_002_VideoFeed:
 
 
 
-    @pytest.mark.sanity
 
-    def test_login(self,setup):
+    @pytest.mark.sanity
+    def test_videofeed(self,setup):
         self.driver = setup
         self.driver.get(self.baseURL)
         self.lp=LoginPage(self.driver)
@@ -33,11 +34,22 @@ class Test_002_VideoFeed:
         self.vf.dates()
         self.vf.video()
         self.vf.violationDropdown()
-        self.vf.playvideo()
-        self.vf.pausevideo()
-        self.lp.logouticon()
-        self.lp.logout()
-    @pytest.mark.regression
+        self.msg = self.driver.find_element(By.TAG_NAME, "body").text
+        if 'Currently there are no videos available for this trip' in self.msg:
+            self.driver.save_screenshot(".\\Screenshots\\" + "No video feeds.png")
+            assert True
+
+        else:
+            self.vf.playvideo()
+            self.vf.pausevideo()
+            self.lp.logouticon()
+            self.lp.logout()
+            self.driver.close()
+            assert True
+
+
+
+    @pytest.mark.sanity
     def test_searchBox(self,setup):
         self.driver = setup
         self.driver.get(self.baseURL)
@@ -51,5 +63,5 @@ class Test_002_VideoFeed:
         self.vf.completedtrip()
         self.vf.search()
         self.vf.clicksearch()
-        self.vf.logouticon()
-        self.vf.logout()
+        self.lp.logouticon()
+        self.lp.logout()

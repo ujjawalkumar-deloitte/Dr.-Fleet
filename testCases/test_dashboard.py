@@ -12,9 +12,8 @@ class Test_005_Dashboard:
     username="kujjawal049@gmail.com"
     password="123"
 
-
+    @pytest.mark.sanity
     def test_dashboard(self,setup):
-
         self.driver = setup
         self.driver.get(self.baseURL)
         self.lp=LoginPage(self.driver)
@@ -39,7 +38,7 @@ class Test_005_Dashboard:
 
             assert True
         self.db.click_on_Dashboard()
-        self.db.lastMonth()
-        self.db.last_to_last_Month()
+        self.db.lastWeek()
+        self.db.Totalviolation()
         self.lp.logouticon()
         self.lp.logout()

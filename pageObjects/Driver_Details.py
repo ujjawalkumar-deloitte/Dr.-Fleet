@@ -7,7 +7,7 @@ class Driver_Details:
     Flag_sorting = "//th[2]//div[1]//button[1]//*[name()='svg']"
     driver_rating_sorting = "//th[3]//div[1]//button[1]//*[name()='svg']"
     completed_trip_sorting = "//th[4]//div[1]//button[1]//*[name()='svg']"
-    driver_Allvideos = "//tbody/tr[1]/td[5]/div[1]/div[1]/button[1]//*[name()='svg']"
+    driver_Allvideos = "//tbody/tr[2]/td[5]/div[1]/div[1]/button[1]//*[name()='svg']"
     driver_videofeed = "(//div[contains(text(),'Sunil Kumar - 4.3')])[1]"
     driver_video = "//div[@class='custom-player']//div//video"
     violation_dropdown = "(//*[name()='path'])[56]"

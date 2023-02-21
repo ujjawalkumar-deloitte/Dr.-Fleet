@@ -166,7 +166,7 @@ class CreateTrips:
         self.driver.find_element(By.XPATH, self.textbox_searcbox_xpath).send_keys("UP36TX3854")
         time.sleep(3)
 
-    def clicksearch(self):
+    def clickSearch(self):
         time.sleep(3)
         self.driver.find_element(By.XPATH, self.clicksearch).click()
         time.sleep(3)

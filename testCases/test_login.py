@@ -14,8 +14,7 @@ class Test_001_Login:
     password="123"
     email="kujjawal049@gmail.com"
 
-
-
+    @pytest.mark.sanity
     def test_homePagetitle(self, setup):
         self.driver = setup
         self.driver.get(self.baseURL)

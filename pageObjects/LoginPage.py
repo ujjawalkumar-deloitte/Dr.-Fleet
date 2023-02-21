@@ -13,7 +13,7 @@ class LoginPage:
     button_click_submit_xpath = "//button[normalize-space()='Submit']"
     button_backLogin_xpath = "//a[normalize-space()='Go back to login page']"
     button_logouticon_xpath = "(//div[@class='MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault avatar css-154ogbs'])[1]"
-    button_clicklogout_xpath = "//div[@class='text text--default-semi-bold']"
+    button_clicklogout_xpath = "/html/body/div[2]/div[3]/ul/li/div/div[2]"
 
 
 

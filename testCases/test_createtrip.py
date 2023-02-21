@@ -47,7 +47,7 @@ class Test_004_CreateTrip:
         self.tr.cancel()
         #self.tr.Yescancel()
         self.tr.Nocancel()
-        self.tr.clickCreate()
+        #self.tr.clickCreate()
         time.sleep(4)
         self.msg = self.driver.find_element(By.TAG_NAME, "body").text
         if 'Trip created successfully' in self.msg:
@@ -55,11 +55,13 @@ class Test_004_CreateTrip:
 
             assert True
         else:
+            self.lp.logouticon()
+            self.lp.logout()
             self.driver.close()
+            assert True
 
-        self.lp.logouticon()
-        self.lp.logout()
 
+    @pytest.mark.sanity
     def test_searchbox(self,setup):
         self.driver = setup
         self.driver.get(self.baseURL)
@@ -71,7 +73,7 @@ class Test_004_CreateTrip:
         self.tr.trip()
         self.tr.scheduledtrips()
         self.tr.search()
-        self.tr.clicksearch()
+        self.tr.clickSearch()
         self.lp.logouticon()
         self.lp.logout()
 

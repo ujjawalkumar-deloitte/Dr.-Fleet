@@ -55,13 +55,13 @@ class Test_003_Trips:
         self.tr.save()
 
         self.msg = self.driver.find_element(By.TAG_NAME, "body").text
-        print(self.msg)
         if 'Trip saved successfully' in self.msg:
             self.driver.save_screenshot(".\\Screenshots\\" + "Trip_updated.png")
             assert True
 
         else:
+            self.lp.logouticon()
+            self.lp.logout()
             self.driver.close()
-        self.lp.logouticon()
-        self.lp.logout()
-        self.driver.close()
+
+        

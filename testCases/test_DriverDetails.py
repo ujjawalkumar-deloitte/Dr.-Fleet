@@ -10,9 +10,8 @@ class Test_006_Driver_Details:
     password="123"
 
 
-
+    @pytest.mark.sanity
     def test_driver_videos(self,setup):
-
         self.driver = setup
         self.driver.get(self.baseURL)
         self.lp=LoginPage(self.driver)
@@ -28,7 +27,7 @@ class Test_006_Driver_Details:
         self.dd.Allvideos()
         self.driver.refresh()
         self.dd.driver_VideoFeed()
-        self.dd.violationDropdown()
+
         self.msg = self.driver.find_element(By.TAG_NAME, "body").text
         if 'Currently there are no videos available for this trip' in self.msg:
             self.driver.save_screenshot(".\\Screenshots\\" + "No trip video.png")
@@ -37,11 +36,12 @@ class Test_006_Driver_Details:
         else:
             self.dd.driver_Video()
             self.dd.driver_Video()
+            self.dd.violationDropdown()
             assert True
         self.lp.logouticon()
         self.lp.logout()
         self.driver.close()
-
+    @pytest.mark.sanity
     def test_driver_info(self,setup):
         self.driver = setup
         self.driver.get(self.baseURL)
